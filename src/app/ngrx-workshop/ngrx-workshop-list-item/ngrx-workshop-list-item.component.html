@@ -1,0 +1,16 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-subtitle>Book name</mat-card-subtitle>
+    <mat-card-title>{{bookName}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ bookSinopsis }}</p>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-actions style="justify-content: end">
+    <button mat-button (click)="onClickFavourite()">Favourite</button>
+  </mat-card-actions>
+  <mat-card-footer>
+<!--    <mat-progress-bar mode="indeterminate"></mat-progress-bar>-->
+  </mat-card-footer>
+</mat-card>

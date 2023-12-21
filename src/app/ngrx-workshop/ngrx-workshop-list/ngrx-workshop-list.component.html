@@ -1,0 +1,18 @@
+<!-- ngrx-workshop-list-card.component.html -->
+<div class="card-container">
+  <div class="card-header">
+    <h2>Books</h2>
+  </div>
+  <div class="card-content">
+    <ul class="card-items-list">
+      <li *ngFor="let book of books" style="justify-content: space-between">
+        <span (click)="onBookClick(book)">{{ book.name }}</span>
+        <div style="justify-content: space-between">
+          <span class="earnings">{{ book.earnings | currency:'USD':'symbol':'1.2-2' }}</span>
+          <button *ngIf="!book.canEdit" class="add-button" (click)="addBook(book)">Add</button>
+          <button *ngIf="book.canEdit" class="remove-button" (click)="removeBook(book)">Remove</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

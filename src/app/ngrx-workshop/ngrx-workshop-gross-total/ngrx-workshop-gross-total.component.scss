@@ -1,0 +1,21 @@
+/* card.component.css */
+.card-container {
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 16px;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-content p {
+  margin: 8px 0;
+}

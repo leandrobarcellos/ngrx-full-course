@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <button (click)="sidenav.toggle()" mat-mini-fab>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span style="margin-left: 0.3rem"> NgRx Learning Center</span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" class="app-sidenav">
+    <nav>
+      <a
+        mat-button
+        class="nav-link"
+        routerLink="mark-ryan-workshop"
+        routerLinkActive="active">
+        <mat-icon>local_library</mat-icon>
+        Mark Ryan Workshop
+      </a>
+    </nav>
+    <nav>
+      <a
+        mat-button
+        class="nav-link"
+        routerLink="ngrx-workshop"
+        routerLinkActive="active">
+        <mat-icon>school</mat-icon>
+        NgRx Workshop
+      </a>
+    </nav>
+  </mat-sidenav>
+
+  <div class="app-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

@@ -1,0 +1,75 @@
+{
+  "books": [
+    {
+      "id": "ca66d740-e41d-4b70-aea1-a8a20759a647",
+      "name": "The Lion, the Witch and the Wardrobe",
+      "earnings": "85000000",
+      "description": "",
+      "canEdit": true
+    },
+    {
+      "id": "408c6851-7b7a-439e-b6db-9fb65ea61071",
+      "name": "The Adventures of Pinocchio",
+      "earnings": "85000000",
+      "description": "",
+      "canEdit": true
+    },
+    {
+      "id": "3fe92243-8444-4ee4-bb39-b5460b8919f1",
+      "name": "The Hobbit",
+      "earnings": "100000000",
+      "description": null,
+      "canEdit": true
+    },
+    {
+      "id": "0eaadf15-7e80-4959-8a70-7b29e4d0b272",
+      "name": "llll",
+      "earnings": "9876",
+      "description": null,
+      "canEdit": true
+    },
+    {
+      "id": "fc9dc408-4931-4ed4-9e78-7c271ec104fa",
+      "externalId": "_-q4BQAAQBAJ",
+      "name": "O Verde na Paisagem Agreste de Pernambuco: Urbano e Rural",
+      "earnings": "685.9105907484677",
+      "canEdit": true
+    },
+    {
+      "id": "8145df70-7225-4593-b5f8-d2fc83beea2a",
+      "externalId": "YULiDgAAQBAJ",
+      "name": "Filosofia Verde",
+      "earnings": "365.8753114489019",
+      "canEdit": true
+    },
+    {
+      "id": "426cbc18-8edd-44ea-ad3d-60d77a264261",
+      "externalId": "vGr6DwAAQBAJ",
+      "name": "A Casa Verde e Amarela",
+      "earnings": "791.9174575107121",
+      "canEdit": true
+    },
+    {
+      "id": "60d403ed-1b4b-4ee3-a739-8318ea2e0735",
+      "externalId": "MdQvAAAACAAJ",
+      "name": "Marketing verde",
+      "earnings": "227.74180982801806",
+      "canEdit": true
+    },
+    {
+      "id": "8b63a4d0-51ee-44b1-abeb-3ae0aba7f659",
+      "externalId": "p89gAAAAMAAJ",
+      "name": "Adubação verde no sul do Brasil",
+      "earnings": "958.604674751852",
+      "canEdit": true
+    },
+    {
+      "id": "a44cf597-f682-49d6-a76d-01744fce43a1",
+      "name": "llll",
+      "earnings": "9876",
+      "description": null,
+      "canEdit": true
+    }
+  ],
+  "users": []
+}

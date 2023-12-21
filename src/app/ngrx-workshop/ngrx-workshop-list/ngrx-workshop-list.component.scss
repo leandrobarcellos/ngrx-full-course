@@ -1,0 +1,52 @@
+/* ngrx-workshop-list-card.component.css */
+.card-container {
+  max-width: 80%;
+  min-width: 50%;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 16px;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.card-content {
+  max-height: 350px;
+  overflow: auto;
+}
+
+.card-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.card-content li {
+  cursor: pointer;
+  padding: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-button, .remove-button {
+  margin-left: 0.5rem;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-button {
+  background-color: #d9534f;
+}
+
+.add-button {
+  background-color: #318b88;
+}

@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" style="justify-content: space-between">
+  <a href="https://www.youtube.com/watch?v=iWX7qCGVt9U" target="_blank"
+     aria-label="JavaScript Marathon | Beginner to Advanced NgRx with Mike Ryan, Creator of NgRx"
+     title="JavaScript Marathon | Beginner to Advanced NgRx with Mike Ryan, Creator of NgRx"><mat-icon color="secondary">play_circle</mat-icon>
+  </a>
+  <span>NgRx Workshop</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+<div style="display: flex; justify-content: space-around">
+  <app-ngrx-workshop-search-box (clickSearch)="onClickSearch($event)"
+                                (clickShowFavourites)="onClickShowFavourites()"></app-ngrx-workshop-search-box>
+  <app-ngrx-workshop-gross-total [books]="books"></app-ngrx-workshop-gross-total>
+</div>
+<div style="display: flex; justify-content: space-around">
+  <app-ngrx-workshop-create [book]="book" (saveBook)="onSaveBook($event)"></app-ngrx-workshop-create>
+  <app-ngrx-workshop-list [books]="books"
+                          (bookClick)="onBookClick($event)"
+                          (removeBookClick)="onRemoveBookClick($event)"
+                          (addBookClick)="onClickFavourite($event)">
+  </app-ngrx-workshop-list>
+  <app-ngrx-workshop-list [books]="externalBooks"
+                          (addBookClick)="onSaveExternalBook($event)">
+  </app-ngrx-workshop-list>
+</div>
