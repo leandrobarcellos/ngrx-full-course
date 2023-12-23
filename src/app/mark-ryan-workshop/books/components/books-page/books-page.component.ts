@@ -5,6 +5,8 @@ import {
   BookRequiredProps
 } from '../../../shared/models';
 import { BooksService } from '../../../shared/services';
+import {BooksApiActions, BooksPageActions} from '../../actions';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-books',
@@ -16,17 +18,20 @@ export class BooksPageComponent implements OnInit {
   currentBook: BookModel | null = null;
   total = 0;
 
-  constructor(private booksService: BooksService) {}
+  constructor(private booksService: BooksService, private readonly store: Store) {}
 
   ngOnInit() {
     this.getBooks();
     this.removeSelectedBook();
+
+    this.store.dispatch(BooksPageActions.initPageAction());
   }
 
   getBooks() {
-    this.booksService.all().subscribe(books => {
+    this.booksService.all().subscribe((books: BookModel[]) => {
       this.books = books;
       this.updateTotals(books);
+      this.store.dispatch(BooksApiActions.getBooks({books}));
     });
   }
 
@@ -35,6 +40,9 @@ export class BooksPageComponent implements OnInit {
   }
 
   onSelect(book: BookModel) {
+    this.store.dispatch(BooksPageActions.selectBookAction({bookId: book.id}));
+    this.store.dispatch(BooksApiActions.getBook({bookId: book.id}));
+
     this.currentBook = book;
   }
 
@@ -43,7 +51,7 @@ export class BooksPageComponent implements OnInit {
   }
 
   removeSelectedBook() {
-    this.currentBook = null;
+    this.currentBook = null as any;
   }
 
   onSave(book: BookRequiredProps | BookModel) {
@@ -55,23 +63,31 @@ export class BooksPageComponent implements OnInit {
   }
 
   saveBook(bookProps: BookRequiredProps) {
-    this.booksService.create(bookProps).subscribe(() => {
+    this.store.dispatch(BooksPageActions.saveBookAction({book: bookProps}));
+    this.booksService.create(bookProps).subscribe((book) => {
       this.getBooks();
       this.removeSelectedBook();
+      this.store.dispatch(BooksApiActions.createBook({book}));
     });
   }
 
   updateBook(book: BookModel) {
-    this.booksService.update(book.id, book).subscribe(() => {
+    this.store.dispatch(BooksPageActions.updateBookAction({book}));
+    // tslint:disable-next-line:no-shadowed-variable
+    this.booksService.update(book.id, book).subscribe((book) => {
       this.getBooks();
       this.removeSelectedBook();
+      this.store.dispatch(BooksApiActions.updateBook({book}));
     });
   }
 
   onDelete(book: BookModel) {
+    this.store.dispatch(BooksPageActions.deleteBookAction({bookId: book.id}));
+
     this.booksService.delete(book.id).subscribe(() => {
       this.getBooks();
       this.removeSelectedBook();
+      this.store.dispatch(BooksApiActions.deleteBook({bookId: book.id}));
     });
   }
 }
