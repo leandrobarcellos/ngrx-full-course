@@ -3,7 +3,7 @@ import { BookModel } from '../../shared/models';
 
 
 export const getBook = createAction(
-  '[Books API] [get]',
+  '[Books API] [get/:id]',
   props<{ bookId: string }>()
 );
 

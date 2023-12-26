@@ -4,8 +4,7 @@ import {BooksPageActions, BooksApiActions} from '../../books/actions';
 
 
 const createBook = (books: BookModel[], book: BookModel) => [...books, book];
-const updateBook = (books: BookModel[], changes: BookModel) =>
-  books.map(b => b.id === changes.id ? Object.assign(b, changes) : b);
+const updateBook = (books: BookModel[], changes: BookModel) => books.map(b => b.id === changes.id ? Object.assign({id: b.id}, changes) : b);
 const deleteBook = (books: BookModel[], bookId: string) => books.filter(b => b.id !== bookId);
 
 export interface State {
@@ -22,15 +21,9 @@ export const reducer = createReducer(
   on(
     BooksPageActions.initPageAction, // when the page is initiated
     // not working on same declaration BooksPageActions.cancelBookAction, // or when user clicks on cancel button we'll clear the state
-    (state: any) => {
-      return {
-        ...state, // keeps the previous state data
-        activeBookId: null // clear the value of the activeBookId state attribute
-      };
-    }
-  ),
+    () => ({...initialState})),
   on(
-    BooksPageActions.cancelBookAction, // or when user clicks on cancel button we'll clear the state
+    BooksPageActions.clearSelectedBookAction, // or when user clicks on cancel button we'll clear the state
     (state: any) => {
       return {
         ...state, // keeps the previous state data

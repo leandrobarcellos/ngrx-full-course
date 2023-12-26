@@ -15,20 +15,15 @@ export const saveBookAction = createAction(
 );
 
 export const updateBookAction = createAction(
-  '[Book Page][save]',
-  props<{book: BookRequiredProps}>()
+  '[Book Page][update]',
+  props<{bookId, changes: BookRequiredProps}>()
 );
 
-export const cancelBookAction = createAction('[Book Page][cancel]');
+export const clearSelectedBookAction = createAction('[Book Page][clear]');
 
 export const deleteBookAction = createAction(
   '[Book Page][delete]',
   props<{bookId: string}>()
-);
-
-export const calculateGrossTotalAction = createAction(
-  '[Book Page][calculateGrossTotal]',
-  props<{books: BookRequiredProps}>()
 );
 
 // will be refactored later ...

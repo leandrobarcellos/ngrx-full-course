@@ -75,5 +75,15 @@ In our app, we can have the following concept:
 - Selectors are fully composable
   - We can use selectors to create another selectors
 
+## [Effects](https://youtu.be/iWX7qCGVt9U?si=q5XG2mPrcTJmsvYT&t=4165)
 
+While Reducers are listening for Actions that changes the State, Effects will listen for Actions that calls our API's
 
+- Processes that run in the background
+- Connect our App to the outside world
+- Often used to talk to services
+- Written entirely using RxJS streams
+  - The worst part of Effects is that it can't avoid the intense use of it.
+  - They are naturally guided by RxJS
+
+- 'concatMap' operator is the safest option in all mappers RxJs operators, although it can cause back pressure
