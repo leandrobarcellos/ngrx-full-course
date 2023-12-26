@@ -8,13 +8,15 @@ import { BooksPageComponent } from './components/books-page/books-page.component
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { BooksListComponent } from './components/books-list/books-list.component';
 import { BooksTotalComponent } from './components/books-total/books-total.component';
+import {SharedStateBooksModule} from '../shared/state';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MaterialModule,
-    RouterModule.forChild([{ path: '', component: BooksPageComponent }])
+    RouterModule.forChild([{ path: '', component: BooksPageComponent }]),
+    SharedStateBooksModule
   ],
   declarations: [
     BooksPageComponent,

@@ -9,7 +9,7 @@ const updateBook = (books: BookModel[], changes: BookModel) =>
 const deleteBook = (books: BookModel[], bookId: string) => books.filter(b => b.id !== bookId);
 
 export interface State {
-  collection: BookModel[], // used as cache
+  collection: BookModel[]; // used as cache
   activeBookId: string | null;
 }
 
@@ -31,12 +31,49 @@ export const reducer = createReducer(
   ),
   on(
     BooksPageActions.selectBookAction, // when user select a book will change the state using the action props
-    (state: any, action) => {
+    (state: any, {bookId}) => {
       return {
         // keeps the previous state data
         ...state,
         // changes the activeBookId state attribute by the incoming from action. Id of the book the user clicked on.
-        activeBookId: action.bookId
+        activeBookId: bookId
+      };
+    }
+  ),
+  on(
+    BooksApiActions.getBooks,
+    (state: any, {books}) => {
+      return {
+        // keeps the previous state data
+        ...state,
+        collection: books
+      };
+    }
+  ),
+  on(
+    BooksApiActions.createBook,
+    (state: any, {book}) => {
+      return {
+        activeBookId: null,
+        collection: createBook(state.collection, book)
+      };
+    }
+  ),
+  on(
+    BooksApiActions.updateBook,
+    (state: any, {book}) => {
+      return {
+        activeBookId: null,
+        collection: updateBook(state.collection, book)
+      };
+    }
+  ),
+  on(
+    BooksApiActions.deleteBook,
+    (state: any, {bookId}) => {
+      return {
+        activeBookId: null,
+        collection: deleteBook(state.collection, bookId)
       };
     }
   )
