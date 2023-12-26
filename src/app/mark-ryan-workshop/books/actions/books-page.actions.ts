@@ -19,9 +19,7 @@ export const updateBookAction = createAction(
   props<{book: BookRequiredProps}>()
 );
 
-export const cancelBookAction = createAction(
-  '[Book Page][cancel]',
-);
+export const cancelBookAction = createAction('[Book Page][cancel]');
 
 export const deleteBookAction = createAction(
   '[Book Page][delete]',

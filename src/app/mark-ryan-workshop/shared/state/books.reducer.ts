@@ -21,6 +21,15 @@ export const initialState: State = {
 export const reducer = createReducer(
   on(
     BooksPageActions.initPageAction, // when the page is initiated
+    // not working on same declaration BooksPageActions.cancelBookAction, // or when user clicks on cancel button we'll clear the state
+    (state: any) => {
+      return {
+        ...state, // keeps the previous state data
+        activeBookId: null // clear the value of the activeBookId state attribute
+      };
+    }
+  ),
+  on(
     BooksPageActions.cancelBookAction, // or when user clicks on cancel button we'll clear the state
     (state: any) => {
       return {
@@ -44,7 +53,6 @@ export const reducer = createReducer(
     BooksApiActions.getBooks,
     (state: any, {books}) => {
       return {
-        // keeps the previous state data
         ...state,
         collection: books
       };

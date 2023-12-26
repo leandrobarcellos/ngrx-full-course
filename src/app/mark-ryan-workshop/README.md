@@ -63,3 +63,17 @@ In our app, we can have the following concept:
   - Feature State
     - Reducer
     - Reducer
+
+## [Selectors](https://youtu.be/iWX7qCGVt9U?si=639eg9uI_psV5TF4&t=3089)
+
+- Allow us to query our store for data
+  - Are like database queries
+- Recompute when their inputs change
+  - Allows reactive angular applications which changes dynamically, in response on what users are doing with the State  
+- Fully leverage memoization for performance
+  - Avoid unnecessarily calculations
+- Selectors are fully composable
+  - We can use selectors to create another selectors
+
+
+
